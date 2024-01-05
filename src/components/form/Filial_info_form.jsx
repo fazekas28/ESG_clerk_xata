@@ -67,7 +67,7 @@ export default function Filial_info_form({ fetchData, editData }) {
     }}>
      <div className="grid gap-6 mb-6 md:grid-cols-2 pt-5">
       <div>
-       <label htmlFor="cnpj_filial" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white uppercase">{info[0]?.filial} CNPJ</label>
+       <label htmlFor="cnpj_filial" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700 uppercase">{info[0]?.filial} CNPJ</label>
        <input
         type="text"
         id="cnpj_filial"
@@ -79,7 +79,7 @@ export default function Filial_info_form({ fetchData, editData }) {
        />
       </div>
       <div>
-       <label htmlFor="cnpj_transportador" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white uppercase">{info[0]?.transp} Transportador CNPJ</label>
+       <label htmlFor="cnpj_transportador" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700 uppercase">{info[0]?.transp} Transportador CNPJ</label>
        <input
         type="text"
         id="cnpj_transportador"
@@ -91,7 +91,7 @@ export default function Filial_info_form({ fetchData, editData }) {
        />
       </div>
       <div>
-       <label htmlFor="cnpj_destinador" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white uppercase">{info[0]?.dest} Destinador CNPJ</label>
+       <label htmlFor="cnpj_destinador" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700 uppercase">{info[0]?.dest} Destinador CNPJ</label>
        <input
         type="text"
         id="cnpj_destinador"
@@ -103,7 +103,7 @@ export default function Filial_info_form({ fetchData, editData }) {
        />
       </div>
       <div>
-       <label htmlFor="tratamento" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white uppercase">Tipo de Tratamento</label>
+       <label htmlFor="tratamento" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700 uppercase">Tipo de Tratamento</label>
        <input
         type="text"
         id="tratamento"
@@ -115,7 +115,7 @@ export default function Filial_info_form({ fetchData, editData }) {
        />
       </div>
       <div>
-       <label htmlFor="uf" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white uppercase">UF</label>
+       <label htmlFor="uf" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700 uppercase">UF</label>
        <input
         type="text"
         id="uf"
@@ -127,7 +127,7 @@ export default function Filial_info_form({ fetchData, editData }) {
        />
       </div>
       <div>
-       <label htmlFor="und" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white uppercase">UND </label>
+       <label htmlFor="und" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700 uppercase">UND </label>
        <input
         type="text"
         id="und"
