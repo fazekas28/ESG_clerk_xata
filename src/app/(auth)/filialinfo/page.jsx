@@ -2,14 +2,13 @@ import React from 'react'
 import Filial_info_form from '../../../components/form/Filial_info_form';
 import { getXataClient } from '../../../lib/xata';
 import { auth } from '@clerk/nextjs';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 
 const xata = getXataClient();
 
 export default async function FilialInfo() {
   const { sessionClaims } = auth();
-  const notify = () => { toast("Wow so easy!") };
 
   const role = sessionClaims?.org_role
   const filial_name = sessionClaims?.org_slug
@@ -29,17 +28,20 @@ export default async function FilialInfo() {
 
   const editData = async (formData, id) => {
     'use server'
+    try {
+      const updatedFilial = await xata.db.filial_info.update(id, {
+        cnpj_filial: formData.cnpj_filial,
+        cnpj_transp: formData.cnpj_transp,
+        cnpj_dest: formData.cnpj_dest,
+        tratamento: formData.tratamento,
+        uf: formData.uf,
+        und: formData.und
+      });
+    } catch (error) {
+      return error
+    }
 
-    const updatedFilial = await xata.db.filial_info.update(id, {
-      cnpj_filial: formData.cnpj_filial,
-      cnpj_transp: formData.cnpj_transp,
-      cnpj_dest: formData.cnpj_dest,
-      tratamento: formData.tratamento,
-      uf: formData.uf,
-      und: formData.und
-    });
-
-    return
+    return "Dados editados com sucesso!"
 
 
   }
