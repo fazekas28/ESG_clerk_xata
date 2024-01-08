@@ -1,6 +1,6 @@
 import { UserButton, auth } from '@clerk/nextjs';
 import React from 'react'
-import { FaHome, FaFolder, FaSearch, FaCog } from 'react-icons/fa';
+import { FaHome, FaFolder, FaSearch, FaCog, FaPaperPlane, FaChartLine } from 'react-icons/fa';
 
 
 export default function SideBar() {
@@ -12,23 +12,26 @@ export default function SideBar() {
  }
 
  return (
-  <div className='bg-gray-800 h-screen w-16 fixed flex flex-col items-center justify-between pt-28'>
+  <div className='bg-gray-800 h-full w-16 fixed top-0 left-0 flex flex-col items-center justify-between pt-20'>
    <div className='flex flex-col items-center pt-8'>
-    <div className=' flex w-full h-16 pb-5 items-center justify-center hover:bg-gray-700'>
+    <div className=' flex w-full h-16 items-center justify-center hover:bg-gray-700'>
      <UserButton />
     </div>
 
     <a href='/' className='text-white p-4 hover:bg-gray-700'>
-     <FaHome size={30} />
+     <FaHome size={20} />
     </a>
-    <a href='#' className='text-white p-4 hover:bg-gray-700'>
-     <FaFolder size={30} />
+    <a href='/sendmtrinfo' className='text-white p-4 hover:bg-gray-700'>
+     <FaPaperPlane size={20} />
     </a>
-    <a href='#' className='text-white p-4 hover:bg-gray-700'>
-     <FaSearch size={30} />
+    <a href='/dashboard' className='text-white p-4 hover:bg-gray-700'>
+     <FaChartLine size={20} />
     </a>
-    <a href='filialinfo' className='text-white p-4 hover:bg-gray-700'>
-     <FaCog size={30} />
+    <a href='search' className='text-white p-4 hover:bg-gray-700'>
+     <FaSearch size={20} />
+    </a>
+    <a href='/filialinfo' className='text-white p-4 hover:bg-gray-700'>
+     <FaCog size={20} />
     </a>
 
    </div>
