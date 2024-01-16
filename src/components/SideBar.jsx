@@ -27,7 +27,7 @@ export default function SideBar() {
     <a href='/dashboard' className='text-white p-4 hover:bg-gray-700'>
      <FaChartLine size={20} />
     </a>
-    <a href='search' className='text-white p-4 hover:bg-gray-700'>
+    <a href='/search' className='text-white p-4 hover:bg-gray-700'>
      <FaSearch size={20} />
     </a>
     <a href='/filialinfo' className='text-white p-4 hover:bg-gray-700'>
