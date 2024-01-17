@@ -28,9 +28,9 @@ export default function TableSearch({ fetchDataTable }) {
       return '';
     }
 
-    // Define the desired order of columns
     const columnOrder = [
       'data',
+      'link_id.cod_uni',
       'link_id.filial',
       'link_id.cnpj_filial',
       'link_id.transp',
@@ -112,7 +112,7 @@ export default function TableSearch({ fetchDataTable }) {
       <div className="pt-5">
         <Table striped>
           <Table.Head>
-            <Table.HeadCell className='bg-blue-800 text-white font-medium'>Loja</Table.HeadCell>
+            <Table.HeadCell className='bg-blue-800 text-white font-medium'>COD_UNI</Table.HeadCell>
             <Table.HeadCell className='bg-blue-800 text-white font-medium'>COD_IBAMA</Table.HeadCell>
             <Table.HeadCell className='bg-blue-800 text-white font-medium'>MTR</Table.HeadCell>
             <Table.HeadCell className='bg-blue-800 text-white font-medium'>CDF</Table.HeadCell>
@@ -122,7 +122,7 @@ export default function TableSearch({ fetchDataTable }) {
           <Table.Body className="divide-y">
             {data.map((record) => (
               <Table.Row key={record.id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className='text-center'>{record.link_id.filial}</Table.Cell>
+                <Table.Cell className='text-center'>{record.link_id.cod_uni}</Table.Cell>
                 <Table.Cell className='text-center'>{record.link_id.cod_ibama}</Table.Cell>
                 <Table.Cell className='text-center'>{record.n_mtr}</Table.Cell>
                 <Table.Cell className='text-center'>{record.n_cdf}</Table.Cell>
