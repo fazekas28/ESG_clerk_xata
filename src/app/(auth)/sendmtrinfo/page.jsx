@@ -32,7 +32,7 @@ export default async function SendMtrInfo() {
 
     const volumeFloat = parseFloat(formData.volume)
 
-    try {
+    
       const saveMtrInfo = await xata.db.mtr_info.create({
         link_id: id,
         data: formatedDate,
@@ -44,11 +44,7 @@ export default async function SendMtrInfo() {
         userId: userId
       })
 
-
-    } catch (error) {
-      return error
-    }
-    return 'Informações salvas com sucesso!'
+    return "ok"
 
   }
 
