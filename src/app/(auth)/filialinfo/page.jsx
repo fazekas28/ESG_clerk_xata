@@ -47,7 +47,7 @@ export default async function FilialInfo() {
   }
 
   return (
-    <div className='flex flex-col pl-[4.25em] pt-10 gap-5'>
+    <div className='flex flex-col pl-[3.80em] pt-10 gap-5'>
       <Filial_info_form fetchData={fetchData} editData={editData} />
       <Toaster
         toastOptions={{
