@@ -46,6 +46,7 @@ export default async function SendMtrInfo() {
 
 
     } catch (error) {
+      console.log(error)
       return "error"
     }
     return 'Informações salvas com sucesso!'
