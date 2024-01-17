@@ -37,6 +37,20 @@ const tables = [
         defaultValue: "null",
       },
     ],
+    revLinks: [{ column: "link_id", table: "mtr_info" }],
+  },
+  {
+    name: "mtr_info",
+    columns: [
+      { name: "data", type: "datetime", notNull: true, defaultValue: "now" },
+      { name: "volume", type: "float", notNull: true, defaultValue: "0" },
+      { name: "userId", type: "string", notNull: true, defaultValue: "null" },
+      { name: "link_id", type: "link", link: { table: "filial_info" } },
+      { name: "n_mtr", type: "string", unique: true },
+      { name: "n_cdf", type: "string", unique: true },
+      { name: "n_nf", type: "string", unique: true },
+      { name: "chave_nf", type: "string", unique: true },
+    ],
   },
 ];
 /** @type { import('@xata.io/client').ClientConstructor<{}> } */
