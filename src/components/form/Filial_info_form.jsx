@@ -82,7 +82,7 @@ export default function Filial_info_form({ fetchData, editData }) {
          name='cnpj_filial'
          value={info[0]?.cnpj_filial || ''}
          onChange={(e) => setInfo([{ ...info[0], cnpj_filial: e.target.value }])}
-         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:text-white"
+         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
          required
         />
        </div>
@@ -94,7 +94,7 @@ export default function Filial_info_form({ fetchData, editData }) {
          name='cnpj_transp'
          value={info[0]?.cnpj_transp || ''}
          onChange={(e) => setInfo([{ ...info[0], cnpj_transp: e.target.value }])}
-         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:text-white"
+         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
          required
         />
        </div>
@@ -118,7 +118,7 @@ export default function Filial_info_form({ fetchData, editData }) {
          name='tratamento'
          value={info[0]?.tratamento || ''}
          onChange={(e) => setInfo([{ ...info[0], tratamento: e.target.value }])}
-         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase dark:text-white"
+         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase"
          required
         />
        </div>
@@ -130,7 +130,7 @@ export default function Filial_info_form({ fetchData, editData }) {
          name='uf'
          value={info[0]?.uf || ''}
          onChange={(e) => setInfo([{ ...info[0], uf: e.target.value }])}
-         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase dark:text-white"
+         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase"
          required
         />
        </div>
@@ -142,7 +142,7 @@ export default function Filial_info_form({ fetchData, editData }) {
          name='und'
          value={info[0]?.und || ''}
          onChange={(e) => setInfo([{ ...info[0], und: e.target.value }])}
-         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase dark:text-white"
+         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase"
          required
         />
        </div>
