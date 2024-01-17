@@ -46,8 +46,7 @@ export default async function SendMtrInfo() {
 
 
     } catch (error) {
-      console.log(error)
-      return "error"
+      return error
     }
     return 'Informações salvas com sucesso!'
 
@@ -57,7 +56,7 @@ export default async function SendMtrInfo() {
 
 
   return (
-    <div className='flex flex-col pl-[4.25em] pt-10 gap-5'>
+    <div className='flex flex-col pl-[3.80em] pt-10 gap-5'>
       <Send_mtr_form getFilialInfo={getFilialInfo} saveMtrInfo={saveMtrInfo} />
       <Toaster
         toastOptions={{
