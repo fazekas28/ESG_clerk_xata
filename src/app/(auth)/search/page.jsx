@@ -17,6 +17,7 @@ export default function Search() {
    })
    .select([
     "*",
+    "link_id.cod_uni",
     "link_id.filial",
     "link_id.cod_ibama",
     "link_id.cnpj_dest",
