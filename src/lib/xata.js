@@ -36,6 +36,8 @@ const tables = [
         notNull: true,
         defaultValue: "null",
       },
+      { name: "cod_uni", type: "int", notNull: true, defaultValue: "0" },
+      { name: "sistema", type: "string", notNull: true, defaultValue: "null" },
     ],
     revLinks: [{ column: "link_id", table: "mtr_info" }],
   },
