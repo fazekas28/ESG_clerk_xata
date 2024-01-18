@@ -33,6 +33,7 @@ export default function TableSearch({ fetchDataTable }) {
       'link_id.cod_uni',
       'link_id.filial',
       'link_id.cnpj_filial',
+      'link_id.sistema',
       'link_id.transp',
       'link_id.cnpj_transp',
       'link_id.dest',
