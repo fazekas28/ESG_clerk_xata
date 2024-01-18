@@ -32,6 +32,7 @@ export default function Filial_info_form({ fetchData, editData }) {
    tratamento: formData.get('tratamento'),
    uf: formData.get('uf'),
    und: formData.get('und'),
+   sistema: formData.get('sistema')
   };
 
   const res = await editData(rawFormData, id);
@@ -73,7 +74,7 @@ export default function Filial_info_form({ fetchData, editData }) {
       e.preventDefault();
       formData(new FormData(e.target));
      }}>
-      <div className="grid gap-6 mb-6 md:grid-cols-2 pt-5">
+      <div className="grid gap-6 mb-2 md:grid-cols-2 pt-5">
        <div>
         <label htmlFor="cnpj_filial" className="block mb-2 text-sm font-medium text-gray-900 uppercase">{info[0]?.filial} CNPJ</label>
         <input
@@ -142,6 +143,18 @@ export default function Filial_info_form({ fetchData, editData }) {
          name='und'
          value={info[0]?.und || ''}
          onChange={(e) => setInfo([{ ...info[0], und: e.target.value }])}
+         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase"
+         required
+        />
+       </div>
+       <div>
+        <label htmlFor="sistema" className="block mb-2 text-sm font-medium text-gray-900 uppercase">SISTEMA </label>
+        <input
+         type="text"
+         id="sistema"
+         name='sistema'
+         value={info[0]?.sistema || ''}
+         onChange={(e) => setInfo([{ ...info[0], sistema: e.target.value }])}
          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 uppercase"
          required
         />
