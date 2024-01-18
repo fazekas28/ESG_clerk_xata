@@ -143,7 +143,7 @@ export default function Cards({ fetchDataChart, fetchBarChartData }) {
       {data.length === 0 ? (
        <p className="py-4 font-bold">Loading...</p>
       ) : (
-       <p className="py-4 font-bold">{data[0].total_volume}</p>
+       <p className="py-4 font-bold">{data[0]?.total_volume}</p>
       )}
       <p className="text-blue-700 font-bold">TON</p>
      </div>
@@ -154,7 +154,7 @@ export default function Cards({ fetchDataChart, fetchBarChartData }) {
       {data.length === 0 ? (
        <p className="py-4 font-bold">Loading...</p>
       ) : (
-       <p className="py-4 font-bold">{data[0].total_records}</p>
+       <p className="py-4 font-bold">{data[0]?.total_records}</p>
       )}
       <p className="text-blue-700 font-bold">TON</p>
      </div>
@@ -165,7 +165,7 @@ export default function Cards({ fetchDataChart, fetchBarChartData }) {
       {data.length === 0 ? (
        <p className="py-4 font-bold">Loading...</p>
       ) : (
-       <p className="py-4 font-bold">{data[1].total_volume}</p>
+       <p className="py-4 font-bold">{data[1]?.total_volume}</p>
       )}
       <p className="text-blue-700 font-bold">TON</p>
      </div>
@@ -176,7 +176,7 @@ export default function Cards({ fetchDataChart, fetchBarChartData }) {
       {data.length === 0 ? (
        <p className="py-4 font-bold">Loading...</p>
       ) : (
-       <p className="py-4 font-bold">{data[1].total_records}</p>
+       <p className="py-4 font-bold">{data[1]?.total_records}</p>
       )}
       <p className="text-blue-700 font-bold">TON</p>
      </div>
