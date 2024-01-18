@@ -1,63 +1,55 @@
 import React from 'react'
-import Send_mtr_form from '../../../components/form/Send_mtr_form'
-import { getXataClient } from '../../../lib/xata'
+import Filial_info_form from '../../../components/form/Filial_info_form';
+import { getXataClient } from '../../../lib/xata';
 import { auth } from '@clerk/nextjs';
 import { Toaster } from 'react-hot-toast';
 
-const xata = getXataClient()
 
-export default async function SendMtrInfo() {
-  const { sessionClaims, userId } = auth();
+const xata = getXataClient();
+
+export default async function FilialInfo() {
+  const { sessionClaims } = auth();
+
+  const role = sessionClaims?.org_role
   const filial_name = sessionClaims?.org_slug
 
-  const getFilialInfo = async (cod) => {
+  const fetchData = async (cod) => {
     'use server'
     const cod_ibama = parseInt(cod)
-    const filialInfo = await xata.db.filial_info.filter({
+    const info = await xata.db.filial_info.filter({
       filial: filial_name,
-      cod_ibama: cod_ibama
+      cod_ibama: cod_ibama,
     }).getMany();
 
-    if (!filialInfo) {
-      return "aconteceu algum erro!"
-    } else return filialInfo[0].id
 
-  }
+    const data = JSON.parse(JSON.stringify(info))
+    return data
+  };
 
-  const saveMtrInfo = async (formData, id) => {
+  const editData = async (formData, id) => {
     'use server'
-
-    const inputDate = new Date(formData.data);
-    const formatedDate = inputDate.toISOString();
-
-    const volumeFloat = parseFloat(formData.volume)
-
     try {
-      const saveMtrInfo = await xata.db.mtr_info.create({
-        link_id: id,
-        data: formatedDate,
-        volume: volumeFloat,
-        n_mtr: formData.n_mtr,
-        n_cdf: formData.n_cdf,
-        n_nf: formData.n_nf,
-        chave_nf: formData.chave_nf,
-        userId: userId
-      })
-
-
+      const updatedFilial = await xata.db.filial_info.update(id, {
+        cnpj_filial: formData.cnpj_filial,
+        cnpj_transp: formData.cnpj_transp,
+        cnpj_dest: formData.cnpj_dest,
+        tratamento: formData.tratamento,
+        uf: formData.uf,
+        und: formData.und,
+        sistema: formData.sistema,
+      });
     } catch (error) {
       return error
     }
-    return 'Informações salvas com sucesso!'
+
+    return "Dados editados com sucesso!"
+
 
   }
 
-
-
-
   return (
-    <div className='flex flex-col pl-[3.80em] pt-10 gap-5'>
-      <Send_mtr_form getFilialInfo={getFilialInfo} saveMtrInfo={saveMtrInfo} />
+    <div className='flex flex-col pl-[3.80em] pt-6 gap-5'>
+      <Filial_info_form fetchData={fetchData} editData={editData} />
       <Toaster
         toastOptions={{
           duration: 4000
