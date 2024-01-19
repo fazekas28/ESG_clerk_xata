@@ -4,6 +4,7 @@ import { FaEdit } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import Image from 'next/image'
 import Submit_btn from '../ui/Submit_btn'
+import InputMask from 'react-input-mask'
 
 export default function Filial_info_form({ fetchData, editData }) {
  const [info, setInfo] = useState([]);
@@ -77,7 +78,9 @@ export default function Filial_info_form({ fetchData, editData }) {
       <div className="grid gap-6 mb-2 md:grid-cols-2 pt-5">
        <div>
         <label htmlFor="cnpj_filial" className="block mb-2 text-sm font-medium text-gray-900 uppercase">{info[0]?.filial} CNPJ</label>
-        <input
+        <InputMask
+         mask="99.999.999/9999-99"
+         maskChar="-"
          type="text"
          id="cnpj_filial"
          name='cnpj_filial'
@@ -89,7 +92,9 @@ export default function Filial_info_form({ fetchData, editData }) {
        </div>
        <div>
         <label htmlFor="cnpj_transportador" className="block mb-2 text-sm font-medium text-gray-900 uppercase">{info[0]?.transp} Transportador CNPJ</label>
-        <input
+        <InputMask
+         mask="99.999.999/9999-99"
+         maskChar="-"
          type="text"
          id="cnpj_transportador"
          name='cnpj_transp'
@@ -101,7 +106,9 @@ export default function Filial_info_form({ fetchData, editData }) {
        </div>
        <div>
         <label htmlFor="cnpj_destinador" className="block mb-2 text-sm font-medium text-gray-900 uppercase">{info[0]?.dest} Destinador CNPJ</label>
-        <input
+        <InputMask
+         mask="99.999.999/9999-99"
+         maskChar="-"
          type="text"
          id="cnpj_destinador"
          name='cnpj_dest'
