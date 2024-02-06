@@ -22,11 +22,15 @@ export default function TableSearch({ fetchDataTable }) {
     setData(res)
   };
 
+  
+
 
   function arrayToCSV(data) {
     if (!data.length) {
       return '';
     }
+
+    data.sort((a, b) => new Date(a.data) - new Date(b.data));
 
     const columnOrder = [
       'data',
@@ -47,10 +51,31 @@ export default function TableSearch({ fetchDataTable }) {
       'chave_nf',
       'volume',
     ];
-    const rows = data.map(record => columnOrder.map(column => {
-      const nestedProps = column.split('.');
-      return nestedProps.reduce((obj, prop) => obj[prop], record);
-    }));
+    const rows = data.map(record => {
+      // Format Date
+      const date = new Date(record.data);
+      const day = String(date.getUTCDate()).padStart(2, '0');
+      const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+      const year = String(date.getUTCFullYear());
+  
+      const formattedDate = `${day}/${month}/${year}`;
+      // Parse Numbers
+        const n_mtr = `=CONCAT(${record.n_mtr})`;
+        const n_cdf = `=CONCAT(${record.n_cdf})`;
+        const n_nf = `=CONCAT(${record.n_nf})`;
+        const chave_nf = `=CONCAT(${record.chave_nf})`;
+  
+      return columnOrder.map(column => {
+        if (column === 'data') return formattedDate;
+        if (column === 'n_mtr') return n_mtr;
+        if (column === 'n_cdf') return n_cdf;
+        if (column === 'n_nf') return n_nf;
+        if (column === 'chave_nf') return chave_nf;
+        const nestedProps = column.split('.');
+        return nestedProps.reduce((obj, prop) => obj[prop], record);
+      });
+    });
+  
     const csv = '\ufeff' + [columnOrder.join(';')].concat(rows.map(row => row.join(';'))).join('\n');
     return csv;
   }
@@ -62,7 +87,7 @@ export default function TableSearch({ fetchDataTable }) {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'data.csv';
+    a.download = 'Planilha_LR.csv';
     a.click();
 
     URL.revokeObjectURL(url);
@@ -73,7 +98,7 @@ export default function TableSearch({ fetchDataTable }) {
 
   return (
     <div>
-      <div className="flex space-x-4 items-center">
+      <div className="flex space-x-4 items-center flex-col space-y-4 md:flex-row">
         <label htmlFor="startDate" className="text-gray-600">Data Inicial:</label>
         <input
           type="date"
@@ -97,7 +122,7 @@ export default function TableSearch({ fetchDataTable }) {
           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none"
         >
           <RiSearchLine className="inline-block mr-2" />
-          Search
+          Procurar
         </button>
 
         {data.length > 0 && (
@@ -110,7 +135,7 @@ export default function TableSearch({ fetchDataTable }) {
           </button>
         )}
       </div>
-      <div className="pt-5">
+      <div className="pt-5 overflow-x-auto">
         <Table striped>
           <Table.Head>
             <Table.HeadCell className='bg-blue-800 text-white font-medium'>COD_UNI</Table.HeadCell>
