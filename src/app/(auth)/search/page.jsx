@@ -83,7 +83,7 @@ export default function Search() {
  }
 
  return (
-  <div className='flex flex-col pl-[4.25em] pt-10 gap-5'>
+  <div className='flex flex-col pl-[2.67em] md:pl-[4.25em] pt-10 gap-5'>
    <TableSearch fetchDataTable={fetchDataTable} />
   </div>
  )
