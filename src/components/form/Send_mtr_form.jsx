@@ -19,18 +19,21 @@ export default function SendMtrForm({ getFilialInfo, saveMtrInfo }) {
  });
 
  const handleDropdownChange = async (event) => {
-  const selectedOption = event.target.value;
-
-  setSelectedValue(selectedOption);
-
-  if (selectedOption !== '') {
-   const filialInfo = await getFilialInfo(selectedOption);
-   setFilialId(filialInfo);
-   setIsFormVisible(true);
-  } else {
-   setIsFormVisible(false);
-  }
- };
+    const selectedOption = event.target.value;
+    setSelectedValue(selectedOption);
+  
+    if (selectedOption !== '') {
+      const filialInfo = await getFilialInfo(selectedOption);
+      if (filialInfo.error) {
+        toast.error(filialInfo.error);
+      } else {
+        setFilialId(filialInfo.id); 
+        setIsFormVisible(true);
+      }
+    } else {
+      setIsFormVisible(false);
+    }
+  };
 
  const handleInputChange = (event) => {
   const { name, value } = event.target;
@@ -41,33 +44,33 @@ export default function SendMtrForm({ getFilialInfo, saveMtrInfo }) {
  };
 
  const handleSubmit = async (e) => {
-  e.preventDefault();
-  const rawFormData = {
-   data: formData.data,
-   volume: formData.volume,
-   n_mtr: formData.n_mtr,
-   n_cdf: formData.n_cdf,
-   n_nf: formData.n_nf,
-   chave_nf: formData.chave_nf,
+    e.preventDefault();
+    const rawFormData = {
+      data: formData.data,
+      volume: formData.volume,
+      n_mtr: formData.n_mtr,
+      n_cdf: formData.n_cdf,
+      n_nf: formData.n_nf,
+      chave_nf: formData.chave_nf,
+    };
+  
+    const res = await saveMtrInfo(rawFormData, filialId);
+  
+    if (res.message) {
+      toast.success(res.message);
+    } else {
+      toast.error(res.error);
+    }
+  
+    setFormData({
+      data: '',
+      volume: '',
+      n_mtr: '',
+      n_cdf: '',
+      n_nf: '',
+      chave_nf: '',
+    });
   };
-
-  const res = await saveMtrInfo(rawFormData, filialId);
-
-  if (res === 'Informações salvas com sucesso!') {
-   toast.success(res)
-  } else toast.error(res)
-
-  setFormData({
-   data: '',
-   volume: '',
-   n_mtr: '',
-   n_cdf: '',
-   n_nf: '',
-   chave_nf: '',
-  });
-  return
-
- };
 
 
 
